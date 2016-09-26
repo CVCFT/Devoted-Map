@@ -6,9 +6,10 @@ var RL = require('react-leaflet');
 
 var Util = require('./util.js');
 
-const attribution = '<a href="https://dev3map.github.io">dev3map.github.io</a>';
-const tilesUrl = 'https://raw.githubusercontent.com/dev3map/tiles/master/world/';
+const attribution = '© <a href="https://cvcft.com">CVCFT.com</a>, © <a href="https://github.com/Gjum">Gjum</a>';
+const tilesUrl = 'https://raw.githubusercontent.com/CVCFT/Devoted-Tiles/master/world/';
 const claimsUrl = 'data/claims.json';
+const noTileImg = 'img/no-tile.png';
 
 var mcCRS = L.extend({}, L.CRS.Simple, {
   transformation: new L.Transformation(1, 0, 1, 0)
@@ -128,7 +129,7 @@ class McMap extends React.Component {
         <RL.TileLayer
           attribution={attribution}
           url={tilesUrl + 'z{z}/{x},{y}.png'}
-          errorTileUrl={'img/no-tile.png'}
+          errorTileUrl={noTileImg}
           tileSize={256}
           bounds={tileBounds}
           minZoom={minZoom}
